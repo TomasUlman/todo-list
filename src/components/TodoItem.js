@@ -43,7 +43,10 @@ export default function TodoItem({ item, onCheck, onDelete, onEdit }) {
  * @param {Event} e - The click event.
  */
     function handleOpenItem(e) {
-        if (e.target.tagName === 'INPUT' || e.target.closest('.item_btns')) return;
+        const isLabel = e.target.tagName === 'LABEL';
+        const isInItemButtons = e.target.closest('.item_btns') !== null;
+
+        if (isLabel || isInItemButtons) return;
 
         setItemIsOpen(open => !open);
     }
@@ -64,7 +67,14 @@ export default function TodoItem({ item, onCheck, onDelete, onEdit }) {
             {!editIsOpen ? (
                 <>
                     <div className='item_row'>
-                        <input type='checkbox' checked={item.isDone} onChange={() => onCheck(item.id)} />
+                        <input
+                            type="checkbox"
+                            id={`checkbox-${item.id}`}
+                            checked={item.isDone}
+                            onChange={() => onCheck(item.id)}
+                        />
+                        <label htmlFor={`checkbox-${item.id}`}></label>
+
 
                         <span>{item.title}</span>
 
