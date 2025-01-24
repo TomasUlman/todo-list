@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 75.5%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  height: 100vh;
+  color: #495057;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  position: relative;
+  margin-top: 5rem;
+  width: 32rem;
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: 100vw;
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 10vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.form_add_item {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  background-color: rgb(247, 246, 246);
+  border: #e4e4e4 solid 1px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+input {
+  padding: 5px;
+  height: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fcfcfc;
+  color: #495057;
+  max-width: 50%;
+}
+
+input:focus {
+  outline: none !important;
+  border: 2px solid #888888;
+}
+
+.btn_close_add_form {
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.custom_textarea {
+  height: 4rem;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fcfcfc;
+  color: #495057;
+}
+
+.custom_textarea:focus {
+  outline: none !important;
+  border: 2px solid #888888;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date_time_container {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn_todo {
+  background-image: linear-gradient(to right, #4be880 0%, #00573F 51%, #4be880 100%);
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: block;
+  border: none;
+}
+
+.btn_todo:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.todo_list {
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+/* Pro moderní prohlížeče (WebKit: Chrome, Edge, Safari) */
+.todo_list::-webkit-scrollbar {
+  width: 8px;
+  margin-left: 1rem;
+}
+
+.todo_list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.todo_list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Pro Firefox */
+.todo_list {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  background-color: rgba(247, 246, 246, 0.414);
+  border: #e4e4e4 solid 1px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.item_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_btns {
+  display: flex;
+  gap: 10px;
+}
+
+.item span {
+  max-width: 70%;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.item p {
+  text-align: center;
+  line-height: 2rem;
+}
+
+.delayed {
+  background-color: #e84b4b57;
+}
+
+.done {
+  background-color: #4be87f5c;
+  box-shadow: none;
+}
+
+.done span {
+  text-decoration: line-through;
+}
+
+.btn_icon {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+/* Vytvoření vlastního vzhledu checkboxu */
+input[type="checkbox"]::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+/* Styl zaškrtnutého checkboxu */
+input[type="checkbox"]:checked::after {
+  background-color: #fff;
+  border-color: #4caf50;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="20 6 9 17 4 12"%3E%3C/polyline%3E%3C/svg%3E');
+  background-size: 22px 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form_edit_item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn_close_edit_form {
+  position: absolute;
+  top: -1.5rem;
+  right: 1rem;
+  font-size: 3rem !important;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+}
