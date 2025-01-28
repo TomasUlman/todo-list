@@ -44,9 +44,10 @@ export default function TodoItem({ item, onCheck, onDelete, onEdit }) {
  */
     function handleOpenItem(e) {
         const isLabel = e.target.tagName === 'LABEL';
-        const isInItemButtons = e.target.closest('.item_btns') !== null;
+        const isItemButtons = e.target.closest('.item_btns') !== null;
+        const isCheckbox = e.target.tagName === 'INPUT' && e.target.type === 'checkbox';
 
-        if (isLabel || isInItemButtons) return;
+        if (isLabel || isItemButtons || isCheckbox) return;
 
         setItemIsOpen(open => !open);
     }
