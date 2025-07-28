@@ -3,7 +3,7 @@
 Jednoduchá osobní aplikace pro správu úkolů. Projekt slouží jako praktické procvičení práce s Reactem, komponentovým návrhem a správou stavu v rámci malého, ale funkčního projektu.
 
 ## 🚀 Live demo
-🔗 _zatím není nasazeno_
+[https://tomasulman-pokedex.netlify.app/](https://tomasulman-pokedex.netlify.app/)
 
 ## 🧩 Funkce
 - Přidávání, editace a mazání úkolů
