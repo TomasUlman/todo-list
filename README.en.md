@@ -3,7 +3,7 @@
 A simple and personal to-do list application built with React. This project serves as hands-on practice with React, component architecture, and local state management.
 
 ## 🚀 Live demo
-🔗 _not deployed yet_
+[https://tomasulman-todolist.netlify.app/](https://tomasulman-todolist.netlify.app/)
 
 ## 🧩 Features
 - Add, edit, and delete tasks
